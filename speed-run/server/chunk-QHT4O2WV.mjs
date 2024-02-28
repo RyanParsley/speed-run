@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{Ga as r,Ha as i,Oa as m,Qa as p,R as n,sb as a}from"./chunk-5WOJ4Q5H.mjs";import"./chunk-VVCT4QZE.mjs";var s=(()=>{let e=class e{};e.\u0275fac=function(o){return new(o||e)},e.\u0275cmp=n({type:e,selectors:[["speed-run-note"]],standalone:!0,features:[p],decls:2,vars:0,template:function(o,d){o&1&&(r(0,"p"),m(1,"note works!"),i())},dependencies:[a],changeDetection:0});let t=e;return t})();var g=[{path:"",component:s}];export{s as NoteComponent,g as noteRoutes};
