@@ -47,9 +47,11 @@ jobs:
       - name: Setup Nu
         uses: hustcer/setup-nu@v3.9
 
-      # Generate a score
       - name: Run Score Script
         run: nu bin/test-score.nu
+
+      - name: Copy Static Assets
+        run: cp static/* dist/apps/
 
       # Deploy dist
       - name: Deploy to GitHub Pages
