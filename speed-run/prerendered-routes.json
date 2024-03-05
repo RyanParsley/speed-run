@@ -1,5 +1,9 @@
 {
   "routes": [
-    "/note"
+    "/",
+    "/note",
+    "/note/1",
+    "/note/42",
+    "/notFound"
   ]
 }
