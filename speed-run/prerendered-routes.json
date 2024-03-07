@@ -2,8 +2,11 @@
   "routes": [
     "/",
     "/note",
+    "/note/0",
     "/note/1",
     "/note/42",
-    "/notFound"
+    "/note/new",
+    "/notFound",
+    "/user"
   ]
 }
