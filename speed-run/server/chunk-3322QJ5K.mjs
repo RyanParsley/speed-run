@@ -1,2 +1,0 @@
-import './polyfills.server.mjs';
-import{Eb as p,Ka as r,La as i,S as n,Ua as s,Ya as m}from"./chunk-ZHMLYEVT.mjs";import"./chunk-VVCT4QZE.mjs";var a=(()=>{let e=class e{};e.\u0275fac=function(o){return new(o||e)},e.\u0275cmp=n({type:e,selectors:[["speed-run-user"]],standalone:!0,features:[m],decls:2,vars:0,template:function(o,d){o&1&&(r(0,"p"),s(1,"user works!"),i())},dependencies:[p],changeDetection:0});let t=e;return t})();var g=[{path:"",component:a}];export{a as UserComponent,g as userRoutes};
