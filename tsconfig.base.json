@@ -17,6 +17,9 @@
     "paths": {
       "@speed-run/note": ["libs/note/src/index.ts"],
       "@speed-run/shared-ui": ["libs/shared-ui/src/index.ts"],
+      "@speed-run/speed-run-plugin": [
+        "libs/speed-run/speed-run-plugin/src/index.ts"
+      ],
       "@speed-run/user": ["libs/user/src/index.ts"]
     }
   },

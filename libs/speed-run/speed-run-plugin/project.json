@@ -1,0 +1,41 @@
+{
+  "name": "speed-run-plugin",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/speed-run/speed-run-plugin/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/speed-run/speed-run-plugin",
+        "main": "libs/speed-run/speed-run-plugin/src/index.ts",
+        "tsConfig": "libs/speed-run/speed-run-plugin/tsconfig.lib.json",
+        "assets": [
+          "libs/speed-run/speed-run-plugin/*.md",
+          {
+            "input": "./libs/speed-run/speed-run-plugin/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./libs/speed-run/speed-run-plugin/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./libs/speed-run/speed-run-plugin",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./libs/speed-run/speed-run-plugin",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    }
+  },
+  "tags": []
+}
