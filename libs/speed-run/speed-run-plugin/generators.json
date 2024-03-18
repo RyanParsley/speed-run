@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "team-ui-generator": {
+      "factory": "./src/generators/team-ui-generator/generator",
+      "schema": "./src/generators/team-ui-generator/schema.json",
+      "description": "Generate a UI App for a team"
+    }
+  }
+}
