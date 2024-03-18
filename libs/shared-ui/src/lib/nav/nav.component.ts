@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -9,44 +9,30 @@ import { RouterModule } from '@angular/router';
   template: `
     <nav>
       <ul class="primary">
+        @for (link of primaryNav; track link.href) {
         <li>
           <a
-            routerLink="/"
+            [routerLink]="link.href"
             routerLinkActive="active"
             ariaCurrentWhenActive="page"
             [routerLinkActiveOptions]="{ exact: true }"
-            >Home</a
+            >{{ link.text }}</a
           >
         </li>
-        <li>
-          <a
-            routerLink="/note"
-            routerLinkActive="active"
-            ariaCurrentWhenActive="page"
-            >Notes</a
-          >
-        </li>
-        <li>
-          <a
-            routerLink="/user"
-            routerLinkActive="active"
-            ariaCurrentWhenActive="page"
-            >Users</a
-          >
-        </li>
+        }
       </ul>
       <ul class="secondary">
+        @for (link of secondaryNav; track link.href) {
         <li>
           <a
-            routerLink="/account"
+            [routerLink]="link.href"
             routerLinkActive="active"
             ariaCurrentWhenActive="page"
-            >Account</a
+            [routerLinkActiveOptions]="{ exact: true }"
+            >{{ link.text }}</a
           >
         </li>
-        <li>
-          <a href="#">Log&nbsp;Out</a>
-        </li>
+        }
       </ul>
     </nav>
   `,
@@ -101,4 +87,7 @@ import { RouterModule } from '@angular/router';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NavComponent {}
+export class NavComponent {
+  @Input() primaryNav: Array<{ text: string; href: string }> = [];
+  @Input() secondaryNav: Array<{ text: string; href: string }> = [];
+}

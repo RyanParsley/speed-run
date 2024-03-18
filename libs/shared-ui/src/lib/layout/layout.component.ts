@@ -13,7 +13,7 @@ import { NavComponent } from '../nav/nav.component';
   imports: [CommonModule, NavComponent],
   template: `
     <header>{{ title }}</header>
-    <speed-run-nav />
+    <speed-run-nav [primaryNav]="primaryNav" [secondaryNav]="secondaryNav" />
     <div class="content">
       <ng-content />
     </div>
@@ -60,4 +60,6 @@ import { NavComponent } from '../nav/nav.component';
 })
 export class LayoutComponent {
   @Input() title = '';
+  @Input() primaryNav: Array<{ text: string; href: string }> = [];
+  @Input() secondaryNav: Array<{ text: string; href: string }> = [];
 }

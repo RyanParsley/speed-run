@@ -10,7 +10,11 @@ import { LayoutComponent } from '@speed-run/shared-ui';
   providers: [HttpClient],
   selector: 'speed-run-root',
   template: `
-    <speed-run-layout [title]="title">
+    <speed-run-layout
+      [title]="title"
+      [primaryNav]="primaryNav"
+      [secondaryNav]="secondaryNav"
+    >
       <router-outlet></router-outlet>
     </speed-run-layout>
   `,
@@ -26,4 +30,13 @@ import { LayoutComponent } from '@speed-run/shared-ui';
 })
 export class AppComponent {
   title = 'Speedrun';
+  primaryNav = [
+    { text: 'Home', href: 'home' },
+    { text: 'Notes', href: 'note' },
+    { text: 'Users', href: 'user' },
+  ];
+  secondaryNav = [
+    { text: 'Account', href: 'account' },
+    { text: 'Log Out', href: 'logout' },
+  ];
 }
