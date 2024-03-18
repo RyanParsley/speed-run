@@ -37,14 +37,15 @@ import { NavComponent } from '../nav/nav.component';
         flex-direction: column;
         overflow-x: auto;
         padding: 0 1rem 1rem;
-        header {
+      }
+      speed-run-layout header {
           background: #333;
           padding: 2rem 2.5rem 2.5rem;
           margin: 0 -1rem;
           color: #fff;
           font-size: 2.5rem;
-        }
-        .content {
+      }
+      speed-run-layout .content {
           padding: 1rem;
           width: 90%;
           max-width: 62rem;
@@ -53,7 +54,6 @@ import { NavComponent } from '../nav/nav.component';
           border-radius: 3px;
           box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
           flex: 1;
-        }
       }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
