@@ -1,5 +1,9 @@
 import { formatFiles, Tree } from '@nx/devkit';
-import { applicationGenerator, libraryGenerator } from '@nx/angular/generators';
+import {
+  applicationGenerator,
+  libraryGenerator,
+  componentGenerator,
+} from '@nx/angular/generators';
 import { TeamUiGeneratorGeneratorSchema } from './schema';
 
 export async function teamUiGeneratorGenerator(
@@ -16,31 +20,37 @@ export async function teamUiGeneratorGenerator(
     routing: true,
     minimal: true,
   });
-  await libraryGenerator(tree, {
-    name: `note`,
-    tags: `${options.name}, feature`,
-    inlineTemplate: true,
-    inlineStyle: true,
-    routing: true,
-    lazy: true,
-    parent: `apps/${options.name}/src/app/app.routes.ts`,
-    style: 'scss',
-    changeDetection: 'OnPush',
-    directory: `libs/${options.name}`,
-  });
-  await libraryGenerator(tree, {
-    name: `user`,
-    tags: `${options.name}, feature`,
-    inlineTemplate: true,
-    inlineStyle: true,
-    routing: true,
-    lazy: true,
-    parent: `apps/${options.name}/src/app/app.routes.ts`,
-    style: 'scss',
-    changeDetection: 'OnPush',
-    directory: `libs/${options.name}`,
-  });
 
+  const features = ['user', 'note'];
+  const routes = ['detail', 'edit', 'new'];
+
+  await Promise.all(
+    features.map(async (feature) => {
+      await libraryGenerator(tree, {
+        name: feature,
+        tags: `${options.name}, feature`,
+        inlineTemplate: true,
+        inlineStyle: true,
+        routing: true,
+        lazy: true,
+        parent: `apps/${options.name}/src/app/app.routes.ts`,
+        style: 'scss',
+        changeDetection: 'OnPush',
+        directory: `libs/${options.name}`,
+      });
+
+      routes.map(async (route) => {
+        await componentGenerator(tree, {
+          name: `${options.name} ${feature} ${route}`,
+          directory: `libs/${options.name}/${feature}/src/lib/${options.name}-${feature}/`,
+          inlineTemplate: true,
+          inlineStyle: true,
+          style: 'scss',
+          changeDetection: 'OnPush',
+        });
+      });
+    })
+  );
   await formatFiles(tree);
 }
 
