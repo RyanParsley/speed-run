@@ -14,6 +14,7 @@ export async function teamUiGeneratorGenerator(
     inlineTemplate: true,
     tags: options.name,
     routing: true,
+    minimal: true,
   });
   await libraryGenerator(tree, {
     name: `note`,
