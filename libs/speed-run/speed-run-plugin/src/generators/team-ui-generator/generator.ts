@@ -1,5 +1,5 @@
 import { formatFiles, Tree } from '@nx/devkit';
-import { applicationGenerator } from '@nx/angular/generators';
+import { applicationGenerator, libraryGenerator } from '@nx/angular/generators';
 import { TeamUiGeneratorGeneratorSchema } from './schema';
 
 export async function teamUiGeneratorGenerator(
@@ -14,6 +14,30 @@ export async function teamUiGeneratorGenerator(
     inlineTemplate: true,
     tags: options.name,
     routing: true,
+  });
+  await libraryGenerator(tree, {
+    name: `note`,
+    tags: `${options.name}, feature`,
+    inlineTemplate: true,
+    inlineStyle: true,
+    routing: true,
+    lazy: true,
+    parent: `apps/${options.name}/src/app/app.routes.ts`,
+    style: 'scss',
+    changeDetection: 'OnPush',
+    directory: `libs/${options.name}`,
+  });
+  await libraryGenerator(tree, {
+    name: `user`,
+    tags: `${options.name}, feature`,
+    inlineTemplate: true,
+    inlineStyle: true,
+    routing: true,
+    lazy: true,
+    parent: `apps/${options.name}/src/app/app.routes.ts`,
+    style: 'scss',
+    changeDetection: 'OnPush',
+    directory: `libs/${options.name}`,
   });
 
   await formatFiles(tree);
