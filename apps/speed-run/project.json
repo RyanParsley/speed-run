@@ -90,6 +90,13 @@
         "json": true,
         "outputFile": "dist/testScores/speed-run-jest-output.json"
       }
+    },
+    "score": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "",
+        "command": "nu bin/test-score.nu"
+      }
     }
   }
 }
